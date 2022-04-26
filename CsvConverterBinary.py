@@ -15,7 +15,7 @@ def Default_str(word):
 def Trie_mkfile_Title(listdatas):
     trie_title = Trie()
 
-    f = open("title_trie.bin", "wb")
+    f = open(r"src\bin\title_trie.bin", "wb")
 
     for line in listdatas:
         title = line.title
