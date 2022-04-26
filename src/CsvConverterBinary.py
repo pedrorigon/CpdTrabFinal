@@ -3,6 +3,7 @@ from structsArq import *
 import pickle
 import os
 import csv
+import re
 
 def Default_str(word):
     aux_word = word.lower()  
