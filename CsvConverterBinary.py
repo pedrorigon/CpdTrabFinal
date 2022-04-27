@@ -21,6 +21,20 @@ def Trie_mkfile_Title(listdatas):
     f.close()
 
 
+def Trie_mkfile_TitleInvertido(listdatas):
+    trie_titleinvertido = Trie()
+
+    f = open(r"src\bin\title_trieinvertido.bin", "wb")
+
+    for line in listdatas:
+        id_title = line.id_title
+        title = line.title
+        trie_titleinvertido.insert(str(id_title), title)
+
+    pickle.dump(trie_titleinvertido, f, pickle.HIGHEST_PROTOCOL)
+    f.close()
+
+
 def Trie_mkfile_Netflix(listdatas):
     trie_netflix = TrieNetflix()
 
@@ -54,6 +68,20 @@ def Trie_mkfile_Language(listdatas):
     f.close()
 
 
+def Trie_mkfile_Languageinvertido(listdatas):
+    trie_languageinvertido = Trie()
+
+    f = open(r"src\bin\language_trieinvertido.bin", "wb")
+
+    for line in listdatas:
+        id_language = line.id_language
+        language = line.language
+        trie_languageinvertido.insert(str(id_language), language)
+
+    pickle.dump(trie_languageinvertido, f, pickle.HIGHEST_PROTOCOL)
+    f.close()
+
+
 def Trie_mkfile_StartYear(listdatas):
     trie_styear = Trie()
 
@@ -65,6 +93,20 @@ def Trie_mkfile_StartYear(listdatas):
         trie_styear.insert(str(styear), id_styear)
 
     pickle.dump(trie_styear, f, pickle.HIGHEST_PROTOCOL)
+    f.close()
+
+
+def Trie_mkfile_StartYearinvertido(listdatas):
+    trie_styearinvertido = Trie()
+
+    f = open(r"src\bin\styear_styearinvertido.bin", "wb")
+
+    for line in listdatas:
+        id_styear = line.id_styear
+        styear = line.styear
+        trie_styearinvertido.insert(str(id_styear), styear)
+
+    pickle.dump(trie_styearinvertido, f, pickle.HIGHEST_PROTOCOL)
     f.close()
 
 
@@ -82,6 +124,20 @@ def Trie_mkfile_Type(listdatas):
     f.close()
 
 
+def Trie_mkfile_Typeinvertido(listdatas):
+    trie_typeinvertido = Trie()
+
+    f = open(r"src\bin\type_trieinvertido.bin", "wb")
+
+    for line in listdatas:
+        id_type = line.id_type
+        type = line.type
+        trie_typeinvertido.insert(str(id_type), type)
+
+    pickle.dump(trie_typeinvertido, f, pickle.HIGHEST_PROTOCOL)
+    f.close()
+
+
 def Trie_mkfile_Country(listdatas):
     trie_country = Trie()
 
@@ -93,6 +149,20 @@ def Trie_mkfile_Country(listdatas):
         trie_country.insert(country, id_country)
 
     pickle.dump(trie_country, f, pickle.HIGHEST_PROTOCOL)
+    f.close()
+
+
+def Trie_mkfile_Countryinvertido(listdatas):
+    trie_countryinvertido = Trie()
+
+    f = open(r"src\bin\country_trieinvertido.bin", "wb")
+
+    for line in listdatas:
+        id_country = line.id_country
+        country = line.country
+        trie_countryinvertido.insert(str(id_country), country)
+
+    pickle.dump(trie_countryinvertido, f, pickle.HIGHEST_PROTOCOL)
     f.close()
 
 
@@ -109,6 +179,18 @@ def Trie_mkfile_RankPop(listdatas):
     pickle.dump(trie_rankpop, f, pickle.HIGHEST_PROTOCOL)
     f.close()
 
+def Trie_mkfile_RankPopinvertido(listdatas):
+    trie_rankpopinvertido = Trie()
+
+    f = open(r"src\bin\rankpop_trieinvertido.bin", "wb")
+
+    for line in listdatas:
+        id_rankpop = line.id_rankpop
+        rankpop = line.rankpop
+        trie_rankpopinvertido.insert(str(id_rankpop), rankpop)
+
+    pickle.dump(trie_rankpopinvertido, f, pickle.HIGHEST_PROTOCOL)
+    f.close()
 
 def CsvtoBin():
     f = open(r"src\csv\NetflixVideosDataCPD.csv",
@@ -259,9 +341,15 @@ def CsvtoBin():
     f.close()
 
     Trie_mkfile_Title(TitleDataCPD)
+    Trie_mkfile_TitleInvertido(TitleDataCPD)
     Trie_mkfile_Netflix(NetflixVideosData)
     Trie_mkfile_Language(LanguageDataCPD)
+    Trie_mkfile_Languageinvertido(LanguageDataCPD)
     Trie_mkfile_StartYear(StartYearDataCPD)
+    Trie_mkfile_StartYearinvertido(StartYearDataCPD)
     Trie_mkfile_Type(TypeDataCPD)
+    Trie_mkfile_Typeinvertido(TypeDataCPD)
     Trie_mkfile_Country(CountryOriginDataCPD)
+    Trie_mkfile_Countryinvertido(CountryOriginDataCPD)
     Trie_mkfile_RankPop(PopularRankDataCPD)
+    Trie_mkfile_RankPopinvertido(PopularRankDataCPD)
