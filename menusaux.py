@@ -3,6 +3,8 @@ from ArqProject import *
 from structsArq import *
 from Trie_mainBin import *
 from Buscas_trie import *
+import time
+import heapq
 
 def artepython():
     print("  ____________________________________________________________________________________________________________________________ ")
@@ -60,6 +62,13 @@ def exibirmenu():
     print("[8] - Encerrar Programa")
 
 
+def heapsort(iterable):
+    aux = []
+    for title in iterable:
+        heapq.heappush(aux, title)
+    return [heapq.heappop(aux) for i in range(len(aux))]
+
+
 def BuscarObras():
     prefix = input("Digite o prefixo para Busca: ")
     list_titles = Busca_filmePrefix(prefix)
@@ -71,8 +80,14 @@ def BuscarObras():
         print()
         print("Foram encontrados as seguintes obras no DataBase:")
         print()
-        for i in list_titles:
+        tempo = time.process_time()
+        vet = heapsort(list_titles)
+        #t = time.process_time() - tempo    
+        for i in vet:
             print(i)
+        t = time.process_time() - tempo 
+        print(f"Tempo de Execução: {t}")
+        print(f"A ordenação em ordem alfabética levou {t} segundos")
         print()
 
 def BuscarObrasfilto1():
