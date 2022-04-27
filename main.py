@@ -2,14 +2,6 @@ from CsvConverterBinary import *
 from ArqProject import *
 from structsArq import *
 from Trie_mainBin import *
-from operator import delitem
-import hashlib
-import pandas as pd
-import numpy as np
-import pickle
-import os
-import csv
-import re
 
 #CsvtoBin()
 
@@ -25,12 +17,4 @@ import re
 
 #trie_netflix = TrieNetflix()
 
-word = 'mai'
 
-
-modelo = open(r"src\bin\title_trie.bin", "rb")
-tree = pickle.load(modelo)
-modelo.close()
-n = tree.starts_with(word)
-
-print(n)
