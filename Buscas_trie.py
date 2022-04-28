@@ -4,6 +4,60 @@ from structsArq import *
 from Trie_mainBin import *
 #import pickle
 
+def Busca_id_titleporid_language(id_language):
+    lenArq = 7007
+    list_id_title = []
+    modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
+    for i in range(lenArq):
+        line = pickle.load(modelo)
+        if line.id_languages == id_language:
+            list_id_title.append(line.id_title)
+    modelo.close()
+    return list_id_title
+
+def Busca_id_titleporid_styear(id_styear):
+    lenArq = 7007
+    list_id_title = []
+    modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
+    for i in range(lenArq):
+        line = pickle.load(modelo)
+        if line.id_styear == id_styear:
+            list_id_title.append(line.id_title)
+    modelo.close()
+    return list_id_title
+
+def Busca_id_titleporid_type(id_type):
+    lenArq = 7007
+    list_id_title = []
+    modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
+    for i in range(lenArq):
+        line = pickle.load(modelo)
+        if line.id_type == id_type:
+            list_id_title.append(line.id_title)
+    modelo.close()
+    return list_id_title
+
+def Busca_id_titleporid_country(id_country):
+    lenArq = 7007
+    list_id_title = []
+    modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
+    for i in range(lenArq):
+        line = pickle.load(modelo)
+        if line.id_country == id_country:
+            list_id_title.append(line.id_title)
+    modelo.close()
+    return list_id_title
+
+def Busca_id_titleporid_rankpop(id_rankpop):
+    lenArq = 7007
+    list_id_title = []
+    modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
+    for i in range(lenArq):
+        line = pickle.load(modelo)
+        if line.id_rankpop == id_rankpop:
+            list_id_title.append(line.id_title)
+    modelo.close()
+    return list_id_title
 
 def Busca_filmePrefix(word):
 
@@ -40,11 +94,10 @@ def Busca_languages(id_languages):
 
 def Busca_id_languages(id_title):
 
-    f = open(r"src\bin\netflix_trie.bin", "rb")
+    f = open(r"src\bin\language_trie.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.id_languagesSearch(id_title)
-    print(n)
+    n = tree.idSearch(id_title)
     
     return n
 
@@ -57,10 +110,10 @@ def Busca_styear(id_styear):
 
 def Busca_id_styear(id_title):
 
-    f = open(r"src\bin\netflix_trie.bin", "rb")
+    f = open(r"src\bin\styear_styear.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.id_styearSearch(id_title)
+    n = tree.idSearch(id_title)
 
     return n
 
@@ -75,10 +128,10 @@ def Busca_type(id_type):
 
 def Busca_id_type(id_title):
 
-    f = open(r"src\bin\netflix_trie.bin", "rb")
+    f = open(r"src\bin\type_trie.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.id_typeSearch(id_title)
+    n = tree.idSearch(id_title)
 
     return n
 
@@ -94,10 +147,10 @@ def Busca_country(id_country):
 
 def Busca_id_country(id_title):
 
-    f = open(r"src\bin\netflix_trie.bin", "rb")
+    f = open(r"src\bin\country_trie.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.id_countrySearch(id_title)
+    n = tree.idSearch(id_title)
 
     return n
 
@@ -112,9 +165,9 @@ def Busca_rankpop(id_rankpop):
 
 def Busca_id_rankpop(id_title):
 
-    f = open(r"src\bin\netflix_trie.bin", "rb")
+    f = open(r"src\bin\rankpop_trie.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.id_rankpopSearch(id_title)
+    n = tree.idSearch(id_title)
 
     return n

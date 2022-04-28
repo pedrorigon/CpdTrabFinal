@@ -6,6 +6,19 @@ import os
 import csv
 import re
 
+class NetflixVideos(object):
+    def __init__(self, nd=0, data=[]):
+        self.nd = nd
+        self.id_title = data[0]
+        self.id_languages = data[1]
+        self.id_styear = data[2]
+        self.id_type = data[3]
+        self.id_country = data[4]
+        self.id_rankpop = data[5]
+
+    def __repr__(self):
+        return ("%s\t%d\t%d\t%d\t%d\t%d\t" %  (str(self.id_title), (self.id_languages), (self.id_styear), (self.id_type), (self.id_country), (self.id_rankpop)))
+
 
 def Trie_mkfile_Title(listdatas):
     trie_title = Trie()
@@ -52,7 +65,6 @@ def Trie_mkfile_Netflix(listdatas):
 
     pickle.dump(trie_netflix, f, pickle.HIGHEST_PROTOCOL)
     f.close()
-
 
 def Trie_mkfile_Language(listdatas):
     trie_language = Trie()

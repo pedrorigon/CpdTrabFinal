@@ -105,41 +105,153 @@ def BuscarObrasfilto1():
         print()
 
 def BuscarObrasfilto2():
+    list_title = []
     linguagem = input("Digite a linguagem: ")
     id_linguagem = Busca_id_languages(linguagem)
-    if len(id_linguagem) == 0:
+    if id_linguagem == False:
         print()
         print("Nada foi encontrado no DataBase :c")
         print()
-    #else:
-        ## fazer invertido no principal também
-        #print()
-        #print("Foram encontrados as seguintes obras no DataBase:")
-       # print()
-       # for i in list_titles:
-            #print(i)
-        #print()
+    else:
+        id_linguagem = str(id_linguagem)
+        list_id_title = Busca_id_titleporid_language(id_linguagem)
+        for i in list_id_title:
+            title = Busca_title(i)
+            list_title.append(title)
+        print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+        print("Foram encontrados as seguintes obras no DataBase:")
+        print("'''''''''''''''''''''''''''''''''''''''''''''''''")
+        tempo = time.process_time()
+        vet = heapsort(list_title)
+        for i in vet:
+            print(i)
+        t = time.process_time() - tempo 
+        print()
+        print(f"A ordenação em ordem alfabética levou {t} segundos")
+        print()
+
+def BuscarObrasfilto3():
+    list_title = []
+    rankpop = input("Digite a Popularidade: ")
+    rankpop = str(rankpop)
+    id_rankpop = Busca_id_rankpop(rankpop)
+    if id_rankpop == False:
+        print()
+        print("Nada foi encontrado no DataBase :c")
+        print()
+    else:
+        id_rankpop = str(id_rankpop)
+        list_id_title = Busca_id_titleporid_rankpop(id_rankpop)
+        for i in list_id_title:
+            title = Busca_title(i)
+            list_title.append(title)
+        print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+        print("Foram encontrados as seguintes obras no DataBase:")
+        print("'''''''''''''''''''''''''''''''''''''''''''''''''")
+        tempo = time.process_time()
+        for i in list_title:
+            print(i)
+        print()
+
+
+def BuscarObrasfilto4():
+    list_title = []
+    styear = input("Digite o Ano de Estreia: ")
+    id_styear = Busca_id_styear(styear)
+    if id_styear == False:
+        print()
+        print("Nada foi encontrado no DataBase :c")
+        print()
+    else:
+        id_styear = str(id_styear)
+        list_id_title = Busca_id_titleporid_styear(id_styear)
+        for i in list_id_title:
+            title = Busca_title(i)
+            list_title.append(title)
+        print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+        print("Foram encontrados as seguintes obras no DataBase:")
+        print("'''''''''''''''''''''''''''''''''''''''''''''''''")
+        tempo = time.process_time()
+        vet = heapsort(list_title)
+        for i in vet:
+            print(i)
+        t = time.process_time() - tempo 
+        print()
+        print(f"A ordenação em ordem alfabética levou {t} segundos")
+        print()
+    
+def BuscarObrasfilto5():
+    list_title = []
+    type = input("Digite o Ano de Estreia: ")
+    id_type = Busca_id_type(type)
+    if id_type == False:
+        print()
+        print("Nada foi encontrado no DataBase :c")
+        print()
+    else:
+        id_type = str(id_type)
+        list_id_title = Busca_id_titleporid_type(id_type)
+        for i in list_id_title:
+            title = Busca_title(i)
+            list_title.append(title)
+        print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+        print("Foram encontrados as seguintes obras no DataBase:")
+        print("'''''''''''''''''''''''''''''''''''''''''''''''''")
+        tempo = time.process_time()
+        vet = heapsort(list_title)
+        for i in vet:
+            print(i)
+        t = time.process_time() - tempo 
+        print()
+        print(f"A ordenação em ordem alfabética levou {t} segundos")
+        print()
+
+def BuscarObrasfilto6():
+    list_title = []
+    country = input("Digite o Ano de Estreia: ")
+    id_country = Busca_id_country(country)
+    if id_country == False:
+        print()
+        print("Nada foi encontrado no DataBase :c")
+        print()
+    else:
+        id_country = str(id_country)
+        list_id_title = Busca_id_titleporid_country(id_country)
+        for i in list_id_title:
+            title = Busca_title(i)
+            list_title.append(title)
+        print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+        print("Foram encontrados as seguintes obras no DataBase:")
+        print("'''''''''''''''''''''''''''''''''''''''''''''''''")
+        tempo = time.process_time()
+        vet = heapsort(list_title)
+        for i in vet:
+            print(i)
+        t = time.process_time() - tempo 
+        print()
+        print(f"A ordenação em ordem alfabética levou {t} segundos")
+        print()
+
 
 def FiltrarObras():
     menu = 11
     while menu != 7:
+        print_menufiltro()
         menu = int(input("Sua opcao: "))
-        if menu == 8:
+        if menu == 7:
             break
         elif menu == 1:
             BuscarObrasfilto1()
         elif menu == 2:
-            pass
+            BuscarObrasfilto2()
         elif menu == 3:
-            pass
+            BuscarObrasfilto3()
         elif menu == 4:
-            pass
+            BuscarObrasfilto4()
         elif menu == 5:
-            pass
+            BuscarObrasfilto5()
         elif menu == 6:
-            pass
-        elif menu == 7:
-            pass
+            BuscarObrasfilto6()
         else:
             print()
             print("************************************************")
@@ -157,13 +269,13 @@ def switchMainmenu():
         elif menu == 1:
             BuscarObras()
         elif menu == 2:
-            print_menufiltro()
             FiltrarObras()
         elif menu == 3:
             pass
         elif menu == 4:
             pass
         elif menu == 5:
+            #Top10Filmes()
             pass
         elif menu == 6:
             pass
