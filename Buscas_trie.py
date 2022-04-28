@@ -22,7 +22,31 @@ def id_title_eh_movie(id_title):
         line = pickle.load(modelo)
         if line.id_title == id_title:
             if line.id_type == "2":
-                return True
+                modelo.close()
+                return True    
+            else:
+                modelo.close()
+                return False
+    modelo.close()
+    return False
+
+def id_title_eh_movie_e_pais(id_title, id_country):
+    lenArq = 7007
+    id_country = str(id_country)
+    modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
+    for i in range(lenArq):
+        line = pickle.load(modelo)
+        if line.id_title == id_title:
+            if line.id_type == "2":
+                if line.id_country == id_country:
+                    modelo.close()
+                    return True
+                else:
+                    modelo.close()
+                    return False
+            else:
+                modelo.close()
+                return False
     modelo.close()
     return False
 
@@ -180,5 +204,21 @@ def Busca_id_rankpop(id_title):
     tree = pickle.load(f)
     f.close()
     n = tree.idSearch(id_title)
+
+    return n
+
+def Busca_id_type_por_id_title(id_title):
+    f = open(r"src\bin\netflix_trie.bin", "rb")
+    tree = pickle.load(f)
+    f.close()
+    n = tree.id_typeSearch(id_title)
+
+    return n
+
+def Busca_id_country_por_id_title(id_title):
+    f = open(r"src\bin\netflix_trie.bin", "rb")
+    tree = pickle.load(f)
+    f.close()
+    n = tree.id_countrySearch(id_title)
 
     return n
