@@ -326,7 +326,7 @@ def Top10Filmes():
             break
         elif menu == 1:
             title1 = Top10Filmes_rank()
-            if len(title2) == 0:
+            if len(title1) == 0:
                 print("Nenhum filme encontrado!")
             else:
                 for i in range(len(title1)):
