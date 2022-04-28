@@ -15,6 +15,17 @@ def Busca_id_titleporid_language(id_language):
     modelo.close()
     return list_id_title
 
+def id_title_eh_movie(id_title):
+    lenArq = 7007
+    modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
+    for i in range(lenArq):
+        line = pickle.load(modelo)
+        if line.id_title == id_title:
+            if line.id_type == "2":
+                return True
+    modelo.close()
+    return False
+
 def Busca_id_titleporid_styear(id_styear):
     lenArq = 7007
     list_id_title = []

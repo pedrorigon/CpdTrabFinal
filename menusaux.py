@@ -232,6 +232,48 @@ def BuscarObrasfilto6():
         print(f"A ordenação em ordem alfabética levou {t} segundos")
         print()
 
+def PopularidadeFiltro(rankpop):
+    list_title = []
+    rankpop = str(rankpop)
+    id_rankpop = Busca_id_rankpop(rankpop)
+    if id_rankpop == False:
+        print()
+        print("Nada foi encontrado no DataBase :c")
+        print()
+    else:
+        id_rankpop = str(id_rankpop)
+        list_id_title = Busca_id_titleporid_rankpop(id_rankpop)
+        for i in list_id_title:
+            title = Busca_title(i)
+            #list_title.append(title)
+        #print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+        #print("Foram encontrados as seguintes obras no DataBase:")
+        #print("'''''''''''''''''''''''''''''''''''''''''''''''''")
+        tempo = time.process_time()
+        return title
+
+def Top10Filmes():
+    print("Buscando 10 melhores filmes aclamados")
+    print("...")
+    print("")
+    lenrank = 7008
+    cont = 0
+    title_list = []
+    for i in range(lenrank):
+        if i != 0:
+            title = PopularidadeFiltro(i)
+            id_title = Busca_id_title(title)
+            confirm = id_title_eh_movie(id_title)
+            if confirm == True:
+                title_list.append(title)
+                cont += 1
+                if(cont == 10):
+                    return title_list
+    return None
+
+
+
+
 
 def FiltrarObras():
     menu = 11
@@ -251,7 +293,8 @@ def FiltrarObras():
         elif menu == 5:
             BuscarObrasfilto5()
         elif menu == 6:
-            BuscarObrasfilto6()
+            #BuscarObrasfilto6()
+            pass
         else:
             print()
             print("************************************************")
@@ -275,8 +318,10 @@ def switchMainmenu():
         elif menu == 4:
             pass
         elif menu == 5:
-            #Top10Filmes()
-            pass
+            list12 = Top10Filmes()
+            for i in range(len(list12)):
+                print(f"{i+1}) {list12[i]}")
+            print()
         elif menu == 6:
             pass
         elif menu == 7:
