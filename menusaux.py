@@ -39,6 +39,26 @@ def print_menufiltro():
     print("[6] - Origin Country")
     print("[7] - Sair do menu de filtros")
 
+def print_menuOrdenacao():
+    print("  ______________________________________________________________________________________________________________________ ")
+    print(" |    __  __                             ___               _                                  ____                      | ")
+    print(" |   |  \/  |   ___   _ __    _   _     / _ \   _ __    __| |   ___   _ __     __ _    ___    __ _    ___               | ")
+    print(" |   | |\/| |  / _ \ | '_ \  | | | |   | | | | | '__|  / _` |  / _ \ | '_ \   / _` |  / __|  / _` |  / _ \              | ")
+    print(" |   | |  | | |  __/ | | | | | |_| |   | |_| | | |    | (_| | |  __/ | | | | | (_| | | (__  | (_| | | (_) |             | ")
+    print(" |   |_|  |_|  \___| |_| |_|  \__,_|    \___/  |_|     \__,_|  \___| |_| |_|  \__,_|  \___|  \__,_|  \___/              | ")
+    print(" |                                                                                      |                               | ")
+    print(" |______________________________________________________________________________________________________________________| ")
+    print('-' * 20)
+    print('Menu Interativo')
+    print('-' * 20)
+    print("Opcoes de Ordenacao: ")
+    print("[1] - Titulos em ordem alfabética normal")
+    print("[2] - Titulos em ordem alfabética inversa")
+    print("[3] - Ranking de popularidade em ordem normal")
+    print("[4] - Ranking de popularidade em ordem inversa")
+    print("[5] - Sair do Menu de Ordenaçao")
+
+
 def exibirmenu():
     print(" ___________________________________________________________________________________________________  ")
     print(" |    __  __                              ____           _                  _                   _   | ")
@@ -56,29 +76,80 @@ def exibirmenu():
     print("[2] - Filtrar Obra")
     print("[3] - Inserir Obra")
     print("[4] - Remover Obra")
-    print("[5] - Top 10 Filmes")
-    print("[6] - top 10 Series")
-    print("[7] - Ordenar NetflixTvShows")
-    print("[8] - Encerrar Programa")
+    print("[5] - Top 10")
+    print("[6] - Ordenar NetflixTvShows")
+    print("[7] - Encerrar Programa")
 
 def print_menuTopFilmes():
-    print("  ______________________________________________________________________________________________________________________ ")
-    print(" |   __  __                            _____                     _    ___      _____   _   _                            | ")
-    print(" |  |  \/  |   ___   _ __    _   _    |_   _|   ___    _ __     / |  / _ \    |  ___| (_) | |  _ __ ___     ___   ___   | ")
-    print(" |  | |\/| |  / _ \ | '_ \  | | | |     | |    / _ \  | '_ \    | | | | | |   | |_    | | | | | '_ ` _ \   / _ \ / __|  | ")
-    print(" |  | |  | | |  __/ | | | | | |_| |     | |   | (_) | | |_) |   | | | |_| |   |  _|   | | | | | | | | | | |  __/ \___   | ")
-    print(" |  |_|  |_|  \___| |_| |_|  \__,_|     |_|    \___/  | .__/    |_|  \___/    |_|     |_| |_| |_| |_| |_|  \___| |___/  | ")
-    print(" |                                                    |_|                                                               | ")
-    print(" |______________________________________________________________________________________________________________________| ")
+    print("  ______________________________________________________________________________")
+    print(" |   __  __                            _____                     _    ___       | ")
+    print(" |  |  \/  |   ___   _ __    _   _    |_   _|   ___    _ __     / |  / _ \      | ")
+    print(" |  | |\/| |  / _ \ | '_ \  | | | |     | |    / _ \  | '_ \    | | | | | |     | ")
+    print(" |  | |  | | |  __/ | | | | | |_| |     | |   | (_) | | |_) |   | | | |_| |     | ")
+    print(" |  |_|  |_|  \___| |_| |_|  \__,_|     |_|    \___/  | .__/    |_|  \___/      | ")
+    print(" |                                                    |_|                       | ")
+    print(" |______________________________________________________________________________| ")
     print('-' * 20)
     print('Menu Interativo')
     print('-' * 20)
     print("Opcoes de Filtro: ")
-    print("[1] - Geral")
-    print("[2] - Por Pais")
-    print("[3] - Mais Recentes")
-    print("[4] - Mais Antigos")
-    print("[5] - Sair do Menu de Top 10 Filmes")
+    print("[1] - Filmes")
+    print("[2] - Series")
+    print("[3] - Por pais de Origem")
+    print("[4] - Sair do Menu de Top 10 Filmes")
+
+def OrdenarObras():
+    menu = 11
+    while menu != 7:
+        print_menuOrdenacao()
+        menu = int(input("Sua opcao: "))
+        if menu == 5:
+            break
+        elif menu == 1:
+            OrdenarObrasTituloNormal()
+        elif menu == 2:
+            OrdenarObrasTituloInverso()
+        elif menu == 3:
+            OrdenarObrasRankNormal()
+        elif menu == 4:
+            OrdenarObrasRankInverso()
+            pass
+        else:
+            print()
+            print("**")
+            print("Opcao invalida (Atencao para as opcoes do menu!)")
+            print("**")
+            pass
+
+def OrdenarObrasTituloNormal():
+    lista_titulos = []
+    prefix = ""
+    lista_titulos = Busca_filmePrefix(prefix)
+    vet = heapsort(lista_titulos)
+
+    print("Lista de Títulos Ordenada em Ordem Alfabetica: ")
+    print() 
+    for i in vet:
+        print(i)
+    print()
+
+def OrdenarObrasTituloInverso():
+    lista_titulos = []
+    prefix = ""
+    lista_titulos = Busca_filmePrefix(prefix)
+    vet = heapsort(lista_titulos)
+
+    print("Lista de Títulos Ordenada em Ordem Alfabetica Inversa: ")
+    print() 
+    for i in reversed(vet):
+        print(i)
+    print()
+
+def OrdenarObrasRankNormal():
+    print("teste3")
+
+def OrdenarObrasRankInverso():
+    print("teste4")
 
 
 def heapsort(iterable):
@@ -99,14 +170,10 @@ def BuscarObras():
         print()
         print("Foram encontrados as seguintes obras no DataBase:")
         print()
-        tempo = time.process_time()
         vet = heapsort(list_titles)
         #t = time.process_time() - tempo    
         for i in vet:
             print(i)
-        t = time.process_time() - tempo 
-        print(f"Tempo de Execução: {t}")
-        print(f"A ordenação em ordem alfabética levou {t} segundos")
         print()
 
 def BuscarObrasfilto1():
@@ -140,14 +207,11 @@ def BuscarObrasfilto2():
         print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
         print("Foram encontrados as seguintes obras no DataBase:")
         print("'''''''''''''''''''''''''''''''''''''''''''''''''")
-        tempo = time.process_time()
         vet = heapsort(list_title)
         for i in vet:
             print(i)
-        t = time.process_time() - tempo 
         print()
-        print(f"A ordenação em ordem alfabética levou {t} segundos")
-        print()
+
 
 def BuscarObrasfilto3():
     list_title = []
@@ -190,14 +254,11 @@ def BuscarObrasfilto4():
         print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
         print("Foram encontrados as seguintes obras no DataBase:")
         print("'''''''''''''''''''''''''''''''''''''''''''''''''")
-        tempo = time.process_time()
         vet = heapsort(list_title)
         for i in vet:
             print(i)
-        t = time.process_time() - tempo 
         print()
-        print(f"A ordenação em ordem alfabética levou {t} segundos")
-        print()
+
     
 def BuscarObrasfilto5():
     list_title = []
@@ -216,13 +277,9 @@ def BuscarObrasfilto5():
         print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
         print("Foram encontrados as seguintes obras no DataBase:")
         print("'''''''''''''''''''''''''''''''''''''''''''''''''")
-        tempo = time.process_time()
         vet = heapsort(list_title)
         for i in vet:
             print(i)
-        t = time.process_time() - tempo 
-        print()
-        print(f"A ordenação em ordem alfabética levou {t} segundos")
         print()
 
 def BuscarObrasfilto6():
@@ -242,15 +299,10 @@ def BuscarObrasfilto6():
         print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
         print("Foram encontrados as seguintes obras no DataBase:")
         print("'''''''''''''''''''''''''''''''''''''''''''''''''")
-        tempo = time.process_time()
         vet = heapsort(list_title)
         for i in vet:
             print(i)
-        t = time.process_time() - tempo 
         print()
-        print(f"A ordenação em ordem alfabética levou {t} segundos")
-        print()
-
 def BuscarObrasPais():
     list_title = []
     country = input("Digite o Pais de Origem: ")
@@ -268,24 +320,16 @@ def BuscarObrasPais():
     return list_title
 
 
-def PopularidadeFiltro(rankpop):
+def PopularidadeFiltro(id_rankpop):
     list_title = []
-    rankpop = str(rankpop)
-    id_rankpop = Busca_id_rankpop(rankpop)
-    if id_rankpop == False:
-        print()
-        print("Nada foi encontrado no DataBase :c")
-        print()
-    else:
-        id_rankpop = str(id_rankpop)
-        list_id_title = Busca_id_titleporid_rankpop(id_rankpop)
-        for i in list_id_title:
-            title = Busca_title(i)
-        tempo = time.process_time()
-        return title
+    id_rankpop = str(id_rankpop)
+    list_id_title = Busca_id_titleporid_rankpop(id_rankpop)
+    for i in list_id_title:
+        title = Busca_title(i)
+    return title
 
 def Top10Filmes_rank():
-    print("Buscando 10 melhores filmes aclamados")
+    print("Buscando Top 10 Filmes Aclamados pela Critica")
     print("...")
     print("")
     lenrank = 7008
@@ -305,24 +349,63 @@ def Top10Filmes_rank():
 
     return title_list
 
-def Top10Filmes_pais():
-    filme_Br = []
-    title_list = BuscarObrasPais()
-    for i in range(len(title_list)):
-        id_title = Busca_id_title(title_list[i])
-        id_type = Busca_id_type_por_id_title(id_title)
-        id_type = str(id_type)
-        if id_type == "2":
-            filme_Br.append(title_list[i])
-    
-    return filme_Br
+def Top10Series_rank():
+    print("Buscando Top 10 Series Aclamadas pela Critica")
+    print("...")
+    print("")
+    lenrank = 7008
+    cont = 0
+    title_list = []
+    for i in range(lenrank):
+        if i != 0:
+            title = PopularidadeFiltro(i)
+            id_title = Busca_id_title(title)
+            #confirm = id_title_eh_movie(id_title)
+            resp = Busca_id_type_por_id_title(id_title)
+            if resp == "1":
+                title_list.append(title)
+                cont += 1
+                if(cont == 10):
+                    return title_list
+
+    return title_list
+
+def Top10Country_rank():
+    country = input("Digite o Pais de Origem: ")
+    id_country = Busca_id_country(country)
+    if id_country != False:
+        id_country = str(id_country)
+        print(f"Buscando Top 10 Obras Aclamadas pela Critica no {country}")
+        print("...")
+        print("")
+        lenrank = 7008
+        cont = 0
+        title_list = []
+        for i in range(lenrank):
+            if i != 0:
+                title = PopularidadeFiltro(i)
+                id_title = Busca_id_title(title)
+                #confirm = id_title_eh_movie(id_title)
+                resp = Busca_id_country_por_id_title(id_title)
+                if resp == id_country:
+                    title_list.append(title)
+                    cont += 1
+                    if(cont == 10):
+                        return title_list
+        if cont < 10:
+            print(f"Não foram Encontradas 10 Obras em {country}")
+            return title_list
+    else:
+        print("Pais não encontrado no DataBase!")
+        title_list = []
+        return title_list
 
 def Top10Filmes():
     menu = 11
     while menu != 7:
         print_menuTopFilmes()
         menu = int(input("Sua opcao: "))
-        if menu == 5:
+        if menu == 4:
             break
         elif menu == 1:
             title1 = Top10Filmes_rank()
@@ -332,16 +415,19 @@ def Top10Filmes():
                 for i in range(len(title1)):
                     print(f"{i+1}) {title1[i]}")              
         elif menu == 2:
-            title2 = Top10Filmes_pais()
+            title2 = Top10Series_rank()
             if len(title2) == 0:
                 print("Nenhum filme encontrado!")
             else:
                 for i in range(len(title2)):
                     print(f"{i+1}) {title2[i]}")   
         elif menu == 3:
-            pass
-        elif menu == 4:
-            pass
+            title3 = Top10Country_rank()
+            if len(title3) == 0:
+                print("Nenhum filme encontrado!")
+            else:
+                for i in range(len(title3)):
+                    print(f"{i+1}) {title3[i]}")   
         else:
             print()
             print("************************************************")
@@ -379,10 +465,10 @@ def FiltrarObras():
 
 def switchMainmenu():
     menu = 11
-    while menu != 8:
+    while menu != 7:
         exibirmenu()
         menu = int(input("Sua opcao: "))
-        if menu == 8:
+        if menu == 7:
             break
         elif menu == 1:
             BuscarObras()
@@ -395,9 +481,7 @@ def switchMainmenu():
         elif menu == 5:
             Top10Filmes()
         elif menu == 6:
-            pass
-        elif menu == 7:
-            pass
+            OrdenarObras()
         else:
             print()
             print("************************************************")

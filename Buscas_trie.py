@@ -41,12 +41,6 @@ def id_title_eh_movie_e_pais(id_title, id_country):
                 if line.id_country == id_country:
                     modelo.close()
                     return True
-                else:
-                    modelo.close()
-                    return False
-            else:
-                modelo.close()
-                return False
     modelo.close()
     return False
 
