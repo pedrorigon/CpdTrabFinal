@@ -156,7 +156,7 @@ def OrdenarObrasRankNormal():
     print()
     for i in title_list:
         print(n, ":", i)
-        n = n+1
+        n = n + 1
 
 
 def OrdenarObrasRankInverso():
@@ -181,6 +181,7 @@ def heapsort(iterable):
 
 def BuscarObras():
     prefix = input("Digite o prefixo para Busca: ")
+    prefix = prefix.lower()
     list_titles = Busca_filmePrefix(prefix)
     if len(list_titles) == 0:
         print()
@@ -202,6 +203,7 @@ def BuscarObras():
 
 def BuscarObrasfilto1():
     id_title = input("Digite o imdb_id: ")
+    id_title = id_title.lower()
     list_titles = Busca_title(id_title)
     if list_titles == False:
         print()
@@ -217,6 +219,7 @@ def BuscarObrasfilto1():
 def BuscarObrasfilto2():
     list_title = []
     linguagem = input("Digite a linguagem: ")
+    linguagem = linguagem.lower()
     id_linguagem = Busca_id_languages(linguagem)
     if id_linguagem == False:
         print()
@@ -286,7 +289,21 @@ def BuscarObrasfilto4():
     
 def BuscarObrasfilto5():
     list_title = []
-    type = input("Digite o Ano de Estreia: ")
+    print()
+    print("Tipos de Obras Disponiveis:")
+    print("- tvseries")
+    print("- movie")
+    print("- tvspecial")
+    print("- tvminiseries")
+    print("- short")
+    print("- video")
+    print("- tvmovie")
+    print("- tvshort")
+    print("- videogame")
+    print("- tvepisode")
+    print()
+    type = input("Digite o Tipo de Obra: ")  #Colocar os tipos dispiniveis para busca
+    type = type.lower()
     id_type = Busca_id_type(type)
     if id_type == False:
         print()
@@ -309,6 +326,7 @@ def BuscarObrasfilto5():
 def BuscarObrasfilto6():
     list_title = []
     country = input("Digite o Pais de Origem: ")
+    country = country.lower()
     id_country = Busca_id_country(country)
     if id_country == False:
         print()
@@ -332,6 +350,7 @@ def BuscarObrasfilto6():
 def BuscarObrasPais():
     list_title = []
     country = input("Digite o Pais de Origem: ")
+    country = country.lower()
     id_country = Busca_id_country(country)
     if id_country == False:
         print()
@@ -406,6 +425,7 @@ def Top10Series_rank():
 
 def Top10Country_rank():
     country = input("Digite o Pais de Origem: ")
+    country = country.lower()
     id_country = Busca_id_country(country)
     if id_country != False:
         id_country = str(id_country)
