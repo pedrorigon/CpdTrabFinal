@@ -327,6 +327,8 @@ def BuscarObrasfilto6():
         for i in vet:
             print(i)
         print()
+
+        
 def BuscarObrasPais():
     list_title = []
     country = input("Digite o Pais de Origem: ")
