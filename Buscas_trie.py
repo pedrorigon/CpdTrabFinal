@@ -5,7 +5,10 @@ from Trie_mainBin import *
 #import pickle
 
 def Busca_id_titleporid_language(id_language):
-    lenArq = 7007
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenArq = inf.nd
     list_id_title = []
     modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
     for i in range(lenArq):
@@ -16,7 +19,10 @@ def Busca_id_titleporid_language(id_language):
     return list_id_title
 
 def id_title_eh_movie(id_title):
-    lenArq = 7007
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenArq = inf.nd
     modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
     for i in range(lenArq):
         line = pickle.load(modelo)
@@ -31,7 +37,10 @@ def id_title_eh_movie(id_title):
     return False
 
 def id_title_eh_movie_e_pais(id_title, id_country):
-    lenArq = 7007
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenArq = inf.nd
     id_country = str(id_country)
     modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
     for i in range(lenArq):
@@ -45,7 +54,10 @@ def id_title_eh_movie_e_pais(id_title, id_country):
     return False
 
 def Busca_id_titleporid_styear(id_styear):
-    lenArq = 7007
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenArq = inf.nd
     list_id_title = []
     modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
     for i in range(lenArq):
@@ -56,7 +68,10 @@ def Busca_id_titleporid_styear(id_styear):
     return list_id_title
 
 def Busca_id_titleporid_type(id_type):
-    lenArq = 7007
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenArq = inf.nd
     list_id_title = []
     modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
     for i in range(lenArq):
@@ -67,7 +82,10 @@ def Busca_id_titleporid_type(id_type):
     return list_id_title
 
 def Busca_id_titleporid_country(id_country):
-    lenArq = 7007
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenArq = inf.nd
     list_id_title = []
     modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
     for i in range(lenArq):
@@ -78,7 +96,10 @@ def Busca_id_titleporid_country(id_country):
     return list_id_title
 
 def Busca_id_titleporid_rankpop(id_rankpop):
-    lenArq = 7007
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenArq = inf.nd
     list_id_title = []
     modelo = open(r"src\bin\NetflixVideosDataCPD.bin", "rb")
     for i in range(lenArq):

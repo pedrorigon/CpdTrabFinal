@@ -332,7 +332,11 @@ def Top10Filmes_rank():
     print("Buscando Top 10 Filmes Aclamados pela Critica")
     print("...")
     print("")
-    lenrank = 7008
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenrank = inf.nd
+    lenrank = lenrank + 1
     cont = 0
     title_list = []
     for i in range(lenrank):
@@ -353,7 +357,11 @@ def Top10Series_rank():
     print("Buscando Top 10 Series Aclamadas pela Critica")
     print("...")
     print("")
-    lenrank = 7008
+    modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+    inf = pickle.load(modelo)
+    modelo.close()
+    lenrank = inf.nd
+    lenrank = lenrank + 1
     cont = 0
     title_list = []
     for i in range(lenrank):
@@ -378,7 +386,11 @@ def Top10Country_rank():
         print(f"Buscando Top 10 Obras Aclamadas pela Critica no {country}")
         print("...")
         print("")
-        lenrank = 7008
+        modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
+        inf = pickle.load(modelo)
+        modelo.close()
+        lenrank = inf.nd
+        lenrank = lenrank + 1
         cont = 0
         title_list = []
         for i in range(lenrank):

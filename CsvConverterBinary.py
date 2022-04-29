@@ -226,6 +226,14 @@ def CsvtoBin():
         handler_bin.close()
     f.close()
 
+    nd = nd - 1  #pq n coloco primeira linha
+    cabecalho = ['0','0','0','0','0', '0']
+    with open(r"src\bin\CabecalhoPrincipal.bin", "wb") as handler_cab:
+        xbincabe = NetflixVideos(nd, cabecalho)
+        pickle.dump(xbincabe, handler_cab, pickle.HIGHEST_PROTOCOL)
+    handler_cab.close()
+
+
     f = open(r"src\csv\TitleDataCPD.csv", 'r',
              errors='ignore', encoding="UTF-8")
     TitleDataCPD = []
