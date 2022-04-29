@@ -146,11 +146,31 @@ def OrdenarObrasTituloInverso():
     print()
 
 def OrdenarObrasRankNormal():
-    print("teste3")
+    title_list = []
+    for i in range(1, 101):
+        title = PopularidadeFiltro(i)
+        title_list.append(title)
+    n=1
+    print()
+    print("Exibindo 100 titulos mais populares em ordem crescente de popularidade:")
+    print()
+    for i in title_list:
+        print(n, ":", i)
+        n = n+1
+
 
 def OrdenarObrasRankInverso():
-    print("teste4")
-
+    title_list = []
+    for i in range(1, 101):
+        title = PopularidadeFiltro(i)
+        title_list.append(title)
+    n=100
+    print()
+    print("Exibindo 100 titulos mais populares em ordem decrescente de popularidade:")
+    print()
+    for i in reversed(title_list):
+        print(n, ":", i)
+        n = n-1
 
 def heapsort(iterable):
     aux = []
@@ -172,9 +192,13 @@ def BuscarObras():
         print()
         vet = heapsort(list_titles)
         #t = time.process_time() - tempo    
-        for i in vet:
-            print(i)
+        for i in range(len(vet)):
+            print(f"{i+1}) {vet[i]}")  
         print()
+        n = (input("Digite o numero da obra que deseja obter informações: "))
+        n = int(n)
+        n = n - 1
+        Catalogo(vet, n)
 
 def BuscarObrasfilto1():
     id_title = input("Digite o imdb_id: ")
@@ -474,6 +498,30 @@ def FiltrarObras():
             print("Opcao invalida (Atencao para as opcoes do menu!)")
             print("************************************************")
             pass
+
+def Catalogo(vetor, offset):
+    title = vetor[offset]
+    id_title = Busca_id_title(title)
+    id_language = Busca_id_languages_por_id_title(id_title)
+    id_styear = Busca_id_styear_por_id_title(id_title)
+    id_type = Busca_id_type_por_id_title(id_title)
+    id_country = Busca_id_country_por_id_title(id_title)
+    id_rankpop = Busca_id_rankpop_por_id_title(id_title)
+    language = Busca_languages(id_language)
+    st_year = Busca_styear(id_styear)
+    type = Busca_type(id_type)
+    country = Busca_country(id_country)
+    rankpop = Busca_rankpop(id_rankpop)
+    print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+    print(f"TITULO DA OBRA: {title.upper()}")
+    print(f"LINGUAGEM ORIGINAL: {language.upper()}")
+    print(f"ANO DE ESTREIA: {st_year}")
+    print(f"TIPO DE OBRA: {type.upper()}")
+    print(f"PAIS DE ORIGEM: {country.upper()}")
+    print(f"RANKING DE POPULARIDADE ENTRE USUARIOS DA NETFLIX: {rankpop}")
+    print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+
+
 
 def switchMainmenu():
     menu = 11

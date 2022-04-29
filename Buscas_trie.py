@@ -142,12 +142,12 @@ def Busca_languages(id_languages):
 
     return n
 
-def Busca_id_languages(id_title):
+def Busca_id_languages(language):
 
     f = open(r"src\bin\language_trie.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.idSearch(id_title)
+    n = tree.idSearch(language)
     
     return n
 
@@ -158,12 +158,12 @@ def Busca_styear(id_styear):
     n = tree.idSearch(id_styear)
     return n
 
-def Busca_id_styear(id_title):
+def Busca_id_styear(styear):
 
     f = open(r"src\bin\styear_styear.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.idSearch(id_title)
+    n = tree.idSearch(styear)
 
     return n
 
@@ -176,12 +176,12 @@ def Busca_type(id_type):
 
     return n
 
-def Busca_id_type(id_title):
+def Busca_id_type(type):
 
     f = open(r"src\bin\type_trie.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.idSearch(id_title)
+    n = tree.idSearch(type)
 
     return n
 
@@ -195,12 +195,12 @@ def Busca_country(id_country):
     return n
 
 
-def Busca_id_country(id_title):
+def Busca_id_country(country):
 
     f = open(r"src\bin\country_trie.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.idSearch(id_title)
+    n = tree.idSearch(country)
 
     return n
 
@@ -213,12 +213,12 @@ def Busca_rankpop(id_rankpop):
 
     return n
 
-def Busca_id_rankpop(id_title):
+def Busca_id_rankpop(rankpop):
 
     f = open(r"src\bin\rankpop_trie.bin", "rb")
     tree = pickle.load(f)
     f.close()
-    n = tree.idSearch(id_title)
+    n = tree.idSearch(rankpop)
 
     return n
 
@@ -235,5 +235,29 @@ def Busca_id_country_por_id_title(id_title):
     tree = pickle.load(f)
     f.close()
     n = tree.id_countrySearch(id_title)
+
+    return n
+
+def Busca_id_languages_por_id_title(id_title):
+    f = open(r"src\bin\netflix_trie.bin", "rb")
+    tree = pickle.load(f)
+    f.close()
+    n = tree.id_languagesSearch(id_title)
+
+    return n
+
+def Busca_id_styear_por_id_title(id_title):
+    f = open(r"src\bin\netflix_trie.bin", "rb")
+    tree = pickle.load(f)
+    f.close()
+    n = tree.id_styearSearch(id_title)
+
+    return n
+
+def Busca_id_rankpop_por_id_title(id_title):
+    f = open(r"src\bin\netflix_trie.bin", "rb")
+    tree = pickle.load(f)
+    f.close()
+    n = tree.id_rankpopSearch(id_title)
 
     return n
