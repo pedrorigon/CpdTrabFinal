@@ -98,6 +98,95 @@ def print_menuTopFilmes():
     print("[3] - Por pais de Origem")
     print("[4] - Sair do Menu de Top 10 Filmes")
 
+
+def menuADDnovaObra():
+    print("  _______________________________________________________________  ")
+    print(" |   __  __                               _      ____    ____    | ")
+    print(" |  |  \/  |   ___   _ __    _   _       / \    |  _ \  |  _ \   | ")
+    print(" |  | |\/| |  / _ \ | '_ \  | | | |     / _ \   | | | | | | | |  | ")
+    print(" |  | |  | | |  __/ | | | | | |_| |    / ___ \  | |_| | | |_| |  | ")
+    print(" |  |_|  |_|  \___| |_| |_|  \__,_|   /_/   \_\ |____/  |____/   | ")
+    print(" |_______________________________________________________________| ")
+    print('-' * 20)
+    print('Menu Interativo')
+    print('-' * 20)
+    print("[1] - Adicionar Nova Obra")
+    print("[2] - Sair do Menu ADD ")
+
+def menuRemoveObra():
+    print("  ________________________________________________________________________________________ ")
+    print(" |   __  __                             ____                                              | ")
+    print(" |  |  \/  |   ___   _ __    _   _     |  _ \    ___   _ __ ___     ___   __   __   ___   | ")
+    print(" |  | |\/| |  / _ \ | '_ \  | | | |    | |_) |  / _ \ | '_ ` _ \   / _ \  \ \ / /  / _ \  | ")
+    print(" |  | |  | | |  __/ | | | | | |_| |    |  _ <  |  __/ | | | | | | | (_) |  \ V /  |  __/  | ")
+    print(" |  |_|  |_|  \___| |_| |_|  \__,_|    |_| \_\  \___| |_| |_| |_|  \___/    \_/    \___|  | ")
+    print(" |________________________________________________________________________________________| ")
+    print('-' * 20)
+    print('Menu Interativo')
+    print('-' * 20)
+    print("[1] - Remover Obra")
+    print("[2] - Sair do Menu Remove ")
+
+def MenuRemove():
+    menu = 11
+    while menu != 2:
+        menuRemoveObra()
+        menu = int(input("Sua opcao: "))
+        if menu == 2:
+            break
+        elif menu == 1:
+            #Remove_Obra()  ## Fazer função de remover
+            print("Implementar Remove")
+        else:
+            print()
+            print("************************************************")
+            print("Opcao invalida (Atencao para as opcoes do menu!)")
+            print("************************************************")
+            pass
+
+def MenuADD():
+    menu = 11
+    while menu != 2:
+        menuADDnovaObra()
+        menu = int(input("Sua opcao: "))
+        if menu == 2:
+            break
+        elif menu == 1:
+            ADD_Obra()
+            #print("Implementar ADD")
+        else:
+            print()
+            print("************************************************")
+            print("Opcao invalida (Atencao para as opcoes do menu!)")
+            print("************************************************")
+            pass
+    
+def ADD_Obra():
+    listADD = []
+    id_title = input("Digite o codigo do imdb da nova Obra: ")
+    teste = Busca_title(id_title)
+    if teste == False:
+        title = input("Digite o titulo da nova obra: ")
+        teste2 = Busca_id_title(title)
+        if teste2 == False:
+            language = input("Digite a linguagem da nova obra: ")
+            styear = input("Digite o ano de estreia da nova obra: ")
+            styear = str(styear)
+            type = input("Digite um tipo da nova obra: ")
+            country = input("Digite um pais de origem da nova obra: ")
+            valid = True
+            while valid != False:
+                rankpop = input("Digite o ranking de popularida da nova obra: ")
+                valid = Busca_id_rankpop(rankpop)
+                if valid != False:
+                    print("Esse Ranking pertence a outra obra :C")
+                    print("Digite um valor válido para ranking de popularidade!")
+            #condicoesADD(id_title, title, language, styear, type, country, rankpop)
+        else:
+            print("Obra já se encontra no database!")
+    else:
+        print("Obra já se encontra no database!")
+
 def OrdenarObras():
     menu = 11
     while menu != 7:
@@ -545,6 +634,8 @@ def Catalogo(vetor, offset):
 
 
 
+
+
 def switchMainmenu():
     menu = 11
     while menu != 7:
@@ -557,9 +648,9 @@ def switchMainmenu():
         elif menu == 2:
             FiltrarObras()
         elif menu == 3:
-            pass
+            MenuADD()
         elif menu == 4:
-            pass
+            MenuRemove()
         elif menu == 5:
             Top10Filmes()
         elif menu == 6:
