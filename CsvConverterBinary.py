@@ -226,7 +226,7 @@ def CsvtoBin():
         handler_bin.close()
     f.close()
 
-    nd = nd - 1  #pq n coloco primeira linha
+    #nd = nd   #pq n coloco primeira linha
     cabecalho = ['0','0','0','0','0', '0']
     with open(r"src\bin\CabecalhoPrincipal.bin", "wb") as handler_cab:
         xbincabe = NetflixVideos(nd, cabecalho)
