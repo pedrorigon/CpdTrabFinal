@@ -3,6 +3,7 @@ from ArqProject import *
 from structsArq import *
 from Trie_mainBin import *
 from Buscas_trie import *
+import pandas as pd
 import time
 import heapq
 
@@ -143,6 +144,60 @@ def MenuRemove():
             print("Opcao invalida (Atencao para as opcoes do menu!)")
             print("************************************************")
             pass
+
+def FuncaoRemove():
+
+    titulo_delete = input("Qual o título que deseja remover do arquivo? ")
+
+    df = pd.read_csv("TitleDataCPD.csv")
+
+    id_title_delete = []
+    #esse for pega o id do titulo que desejo deletar
+    for n, line in df.iterrows():
+        if titulo_delete == line['title']:
+            id_title_delete.append(line['id_imdbtitle'])
+        
+    #indexName recebe o indice do id que desejamos deletar
+    for i in id_title_delete:
+        indexName = df[ df['id_imdbtitle'] == i].index
+        #drop deleta a linha    
+        df.drop(indexName , inplace=True)
+      
+    #cria arquivo de Title data com o titulo deletado
+    df.to_csv("TitleDataCPD.csv", index = False) 
+
+    #agora deletar do arquivo de data geral
+    df = pd.read_csv("NetflixVideosDataCPD.csv")
+
+    id_ranking_delete = []
+    #esse for pega o id do titulo que desejo deletar
+    for n, line in df.iterrows():
+        for i in id_title_delete:
+            if i == line['id_imdbtitle']:
+                id_ranking_delete.append(line['id_rankpop'])
+                #indexName recebe o indice do id que desejamos deletar
+                indexName = df[ df['id_imdbtitle'] == i ].index
+                #drop deleta a linha    
+                df.drop(indexName , inplace=True)
+
+    #cria arquivo de Data data com o titulo deletado
+    df.to_csv("NetflixVideosDataCPD.csv", index = False)
+
+    #agora deletar no arquivo do ranking
+    df = pd.read_csv("PopularRankDataCPD.csv")
+
+    #esse for pega o id do titulo que desejo deletar
+    for n, line in df.iterrows():
+        for i in id_ranking_delete:
+            if i == line['popular_rank']:
+                #indexName recebe o indice do id que desejamos deletar
+                indexName = df[ df['id_rankpop'] == i ].index
+                #drop deleta a linha    
+                df.drop(indexName , inplace=True)
+      
+    #cria arquivo de Title data com o titulo deletado
+    df.to_csv("PopularRankDataCPD.csv", index = False)    
+    CsvtoBin()
 
 def MenuADD():
     menu = 11
