@@ -6,7 +6,7 @@ from Buscas_trie import *
 from menusaux import *
 
 
-CsvtoBin()
+#1CsvtoBin()
 artepython()
 switchMainmenu()
 

@@ -96,6 +96,7 @@ def Busca_id_titleporid_country(id_country):
     return list_id_title
 
 def Busca_id_titleporid_rankpop(id_rankpop):
+    entryflag = 0
     modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
     inf = pickle.load(modelo)
     modelo.close()
@@ -105,9 +106,14 @@ def Busca_id_titleporid_rankpop(id_rankpop):
     for i in range(lenArq):
         line = pickle.load(modelo)
         if line.id_rankpop == id_rankpop:
+            entryflag = 1
             list_id_title.append(line.id_title)
     modelo.close()
-    return list_id_title
+    if entryflag == 1:
+        return list_id_title
+    else:
+        list_erro = False
+        return list_erro
 
 def Busca_filmePrefix(word):
 
