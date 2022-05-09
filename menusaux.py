@@ -8,6 +8,7 @@ import os
 import time
 import heapq
 
+
 def artepython():
     print("  ____________________________________________________________________________________________________________________________ ")
     print(" |   _____                  _               _   _                 _____   _                   _        ____   ____    ____    |")
@@ -20,6 +21,7 @@ def artepython():
     print()
     print("Desenvolido por Brenda Schussler e Pedro Rigon")
     print("________________________________________________")
+
 
 def print_menufiltro():
     print(" __________________________________________________________________________________________________  ")
@@ -40,6 +42,7 @@ def print_menufiltro():
     print("[5] - Type")
     print("[6] - Origin Country")
     print("[7] - Sair do menu de filtros")
+
 
 def print_menuOrdenacao():
     print("  ______________________________________________________________________________________________________________________ ")
@@ -82,6 +85,7 @@ def exibirmenu():
     print("[6] - Ordenar NetflixTvShows")
     print("[7] - Encerrar Programa")
 
+
 def print_menuTopFilmes():
     print("  ______________________________________________________________________________")
     print(" |   __  __                            _____                     _    ___       | ")
@@ -97,8 +101,7 @@ def print_menuTopFilmes():
     print("Opcoes de Filtro: ")
     print("[1] - Filmes")
     print("[2] - Series")
-    print("[3] - Por pais de Origem")
-    print("[4] - Sair do Menu de Top 10 Filmes")
+    print("[3] - Sair do Menu de Top 10 Filmes")
 
 
 def menuADDnovaObra():
@@ -115,6 +118,7 @@ def menuADDnovaObra():
     print("[1] - Adicionar Nova Obra")
     print("[2] - Sair do Menu ADD ")
 
+
 def menuRemoveObra():
     print("  ________________________________________________________________________________________ ")
     print(" |   __  __                             ____                                              | ")
@@ -129,6 +133,7 @@ def menuRemoveObra():
     print("[1] - Remover Obra")
     print("[2] - Sair do Menu Remove ")
 
+
 def MenuRemove():
     menu = '11'
     while menu != '2':
@@ -138,7 +143,6 @@ def MenuRemove():
             break
         elif menu == '1':
             FuncaoRemove()
-            print("Implementar Remove")
         else:
             print()
             print("************************************************")
@@ -155,53 +159,51 @@ def FuncaoRemove():
         df = pd.read_csv(r"src\csv\TitleDataCPD.csv")
 
         id_title_delete = []
-        #esse for pega o id do titulo que desejo deletar
+        # esse for pega o id do titulo que desejo deletar
         for n, line in df.iterrows():
             if titulo_delete == line['title']:
                 id_title_delete.append(line['id_imdbtitle'])
-            
-        #indexName recebe o indice do id que desejamos deletar
+
+        # indexName recebe o indice do id que desejamos deletar
         for i in id_title_delete:
-            indexName = df[ df['id_imdbtitle'] == i].index
-            #drop deleta a linha    
-            df.drop(indexName , inplace=True)
+            indexName = df[df['id_imdbtitle'] == i].index
+            # drop deleta a linha
+            df.drop(indexName, inplace=True)
 
-        #cria arquivo de Title data com o titulo deletado
-        df.to_csv(r"src\csv\TitleDataCPD.csv", index = False) 
+        # cria arquivo de Title data com o titulo deletado
+        df.to_csv(r"src\csv\TitleDataCPD.csv", index=False)
 
-
-        #agora deletar do arquivo de data geral
+        # agora deletar do arquivo de data geral
         df = pd.read_csv(r"src\csv\NetflixVideosDataCPD.csv")
 
         id_ranking_delete = []
-        #esse for pega o id do titulo que desejo deletar
+        # esse for pega o id do titulo que desejo deletar
         for n, line in df.iterrows():
             for i in id_title_delete:
                 if i == line['id_imdbtitle']:
                     id_ranking_delete.append(line['id_rankpop'])
-                    #indexName recebe o indice do id que desejamos deletar
-                    indexName = df[ df['id_imdbtitle'] == i ].index
-                    #drop deleta a linha    
-                    df.drop(indexName , inplace=True)
+                    # indexName recebe o indice do id que desejamos deletar
+                    indexName = df[df['id_imdbtitle'] == i].index
+                    # drop deleta a linha
+                    df.drop(indexName, inplace=True)
 
-        #cria arquivo de Data data com o titulo deletado
-        df.to_csv(r"src\csv\NetflixVideosDataCPD.csv", index = False)
+        # cria arquivo de Data data com o titulo deletado
+        df.to_csv(r"src\csv\NetflixVideosDataCPD.csv", index=False)
 
-
-        #agora deletar no arquivo do ranking
+        # agora deletar no arquivo do ranking
         df = pd.read_csv(r"src\csv\PopularRankDataCPD.csv")
 
-        #esse for pega o id do titulo que desejo deletar
+        # esse for pega o id do titulo que desejo deletar
         for n, line in df.iterrows():
             for i in id_ranking_delete:
                 if i == line['popular_rank']:
-                    #indexName recebe o indice do id que desejamos deletar
-                    indexName = df[ df['id_rankpop'] == i ].index
-                    #drop deleta a linha    
-                    df.drop(indexName , inplace=True)
+                    # indexName recebe o indice do id que desejamos deletar
+                    indexName = df[df['id_rankpop'] == i].index
+                    # drop deleta a linha
+                    df.drop(indexName, inplace=True)
 
-        #cria arquivo de Title data com o titulo deletado
-        df.to_csv(r"src\csv\PopularRankDataCPD.csv", index = False) 
+        # cria arquivo de Title data com o titulo deletado
+        df.to_csv(r"src\csv\PopularRankDataCPD.csv", index=False)
 
         os.remove(r"src\bin\NetflixVideosDataCPD.bin")
         os.remove(r"src\bin\CabecalhoPrincipal.bin")
@@ -218,10 +220,11 @@ def FuncaoRemove():
         os.remove(r"src\bin\title_trieinvertido.bin")
         os.remove(r"src\bin\type_trie.bin")
         os.remove(r"src\bin\type_trieinvertido.bin")
-        
+
         CsvtoBin()
     else:
         print("Obra nao encontrada do DataBase!")
+
 
 def MenuADD():
     menu = '11'
@@ -239,7 +242,8 @@ def MenuADD():
             print("Opcao invalida (Atencao para as opcoes do menu!)")
             print("************************************************")
             pass
-    
+
+
 def ADD_Obra():
     # TITULO
     titulo_add = input("Qual o título que deseja adicionar ao arquivo? ")
@@ -267,10 +271,22 @@ def ADD_Obra():
 
         df = pd.read_csv(r"src\csv\CountryOriginDataCPD.csv")
 
+        flag_country = 0
         # esse for pega o id do country
         for n, line in df.iterrows():
             if country_add == line['orign_country']:
                 id_country_add = (line['id_orign'])
+                flag_country = 1
+
+        if flag_country == 0:
+            new_id_country = (len(df.index)) + 1
+            new_id_country = str(new_id_country)
+            dados5 = {'id_orign': new_id_country, 'orign_country': country_add}
+            df5 = pd.DataFrame(dados5, index=[len(df.index)])
+            frames = [df, df5]
+            df = pd.concat(frames)
+            id_country_add = new_id_country
+            df.to_csv(r"src\csv\CountryOriginDataCPD.csv", index=False)
 
         # LANGUAGE
         language_add = input(
@@ -278,17 +294,38 @@ def ADD_Obra():
 
         df = pd.read_csv(r"src\csv\LanguageDataCPD.csv")
 
+        flag_language = 0
         # esse for pega o id de language
         for n, line in df.iterrows():
             if language_add == line['language']:
                 id_language_add = (line['id_language'])
+                flag_language = 1
+
+        if flag_language == 0:
+            new_id_language_add = (len(df.index)) + 1
+            new_id_language_add = str(new_id_language_add)
+            dados5 = {'id_language': new_id_language_add,
+                      'language': language_add}
+            df5 = pd.DataFrame(dados5, index=[len(df.index)])
+            frames = [df, df5]
+            df = pd.concat(frames)
+            id_language_add = new_id_language_add
+            df.to_csv(r"src\csv\LanguageDataCPD.csv", index=False)
 
         # START YEAR
-        year_add = input("Qual o ano de estreia do título que deseja adicionar ao arquivo? ")
-        id_year_add = Busca_id_styear(year_add)
+        repet = 1
+        while repet == 1:
+            year_add = input("Qual o ano de estreia do título que deseja adicionar ao arquivo? ")
+            id_year_add = Busca_id_styear(year_add)
+            if id_year_add == False:
+                repet = 1
+                print("Digite um ano valido!")
+            else:
+                repet = 0
 
         # TYPE
-        type_add = input("Qual o tipo do título que deseja adicionar ao arquivo? \n opções: tvSeries\n movie\n tvSpecial\n tvMiniSeries\n short\n video\n tvMovie\n tvShort\n videoGame\n tvEpisode\n\n ")
+        type_add = input(
+            "Qual o tipo do título que deseja adicionar ao arquivo? \n opções: tvSeries\n movie\n tvSpecial\n tvMiniSeries\n short\n video\n tvMovie\n tvShort\n videoGame\n tvEpisode\n\n ")
 
         df = pd.read_csv(r"src\csv\TypeDataCPD.csv")
 
@@ -313,7 +350,8 @@ def ADD_Obra():
 
         df = pd.read_csv(r"src\csv\NetflixVideosDataCPD.csv")
 
-        dados3 = {'id_imdbtitle': new_id, 'id_languages': id_language_add, 'id_styear': id_year_add,'id_type': id_type_add, 'id_country': id_country_add, 'id_rankpop': id_rank_add}
+        dados3 = {'id_imdbtitle': new_id, 'id_languages': id_language_add, 'id_styear': id_year_add,
+                  'id_type': id_type_add, 'id_country': id_country_add, 'id_rankpop': id_rank_add}
         df3 = pd.DataFrame(dados3, index=[len(df.index)])
         frames = [df, df3]
         df = pd.concat(frames)
@@ -340,6 +378,7 @@ def ADD_Obra():
     else:
         print("Obra ja se encontra no DataBase!")
 
+
 def OrdenarObras():
     menu = '11'
     while menu != '7':
@@ -363,6 +402,7 @@ def OrdenarObras():
             print("**")
             pass
 
+
 def OrdenarObrasTituloNormal():
     lista_titulos = []
     prefix = ""
@@ -370,10 +410,11 @@ def OrdenarObrasTituloNormal():
     vet = heapsort(lista_titulos)
 
     print("Lista de Títulos Ordenada em Ordem Alfabetica: ")
-    print() 
+    print()
     for i in vet:
         print(i)
     print()
+
 
 def OrdenarObrasTituloInverso():
     lista_titulos = []
@@ -382,17 +423,18 @@ def OrdenarObrasTituloInverso():
     vet = heapsort(lista_titulos)
 
     print("Lista de Títulos Ordenada em Ordem Alfabetica Inversa: ")
-    print() 
+    print()
     for i in reversed(vet):
         print(i)
     print()
+
 
 def OrdenarObrasRankNormal():
     title_list = []
     for i in range(1, 101):
         title = PopularidadeFiltro(i)
         title_list.append(title)
-    n=1
+    n = 1
     print()
     print("Exibindo 100 titulos mais populares em ordem crescente de popularidade:")
     print()
@@ -406,13 +448,14 @@ def OrdenarObrasRankInverso():
     for i in range(1, 101):
         title = PopularidadeFiltro(i)
         title_list.append(title)
-    n=100
+    n = 100
     print()
     print("Exibindo 100 titulos mais populares em ordem decrescente de popularidade:")
     print()
     for i in reversed(title_list):
         print(n, ":", i)
         n = n-1
+
 
 def heapsort(iterable):
     aux = []
@@ -434,14 +477,15 @@ def BuscarObras():
         print("Foram encontrados as seguintes obras no DataBase:")
         print()
         vet = heapsort(list_titles)
-        #t = time.process_time() - tempo    
+        #t = time.process_time() - tempo
         for i in range(len(vet)):
-            print(f"{i+1}) {vet[i]}")  
+            print(f"{i+1}) {vet[i]}")
         print()
         n = (input("Digite o numero da obra que deseja obter informações: "))
         n = int(n)
         n = n - 1
         Catalogo(vet, n)
+
 
 def BuscarObrasfilto1():
     id_title = input("Digite o imdb_id: ")
@@ -457,6 +501,7 @@ def BuscarObrasfilto1():
         print()
         print(list_titles)
         print()
+
 
 def BuscarObrasfilto2():
     list_title = []
@@ -528,7 +573,7 @@ def BuscarObrasfilto4():
             print(i)
         print()
 
-    
+
 def BuscarObrasfilto5():
     list_title = []
     print()
@@ -544,7 +589,8 @@ def BuscarObrasfilto5():
     print("- videogame")
     print("- tvepisode")
     print()
-    type = input("Digite o Tipo de Obra: ")  #Colocar os tipos dispiniveis para busca
+    # Colocar os tipos dispiniveis para busca
+    type = input("Digite o Tipo de Obra: ")
     type = type.lower()
     id_type = Busca_id_type(type)
     if id_type == False:
@@ -564,6 +610,7 @@ def BuscarObrasfilto5():
         for i in vet:
             print(i)
         print()
+
 
 def BuscarObrasfilto6():
     list_title = []
@@ -588,7 +635,7 @@ def BuscarObrasfilto6():
             print(i)
         print()
 
-        
+
 def BuscarObrasPais():
     list_title = []
     country = input("Digite o Pais de Origem: ")
@@ -619,6 +666,7 @@ def PopularidadeFiltro(id_rankpop):
         title = False
         return title
 
+
 def Top10Filmes_rank():
     print("Buscando Top 10 Filmes Aclamados pela Critica")
     print("...")
@@ -643,6 +691,7 @@ def Top10Filmes_rank():
                     if(cont == 10):
                         return title_list
     return title_list
+
 
 def Top10Series_rank():
     print("Buscando Top 10 Series Aclamadas pela Critica")
@@ -669,47 +718,13 @@ def Top10Series_rank():
                         return title_list
     return title_list
 
-def Top10Country_rank():
-    country = input("Digite o Pais de Origem: ")
-    country = country.lower()
-    id_country = Busca_id_country(country)
-    if id_country != False:
-        id_country = str(id_country)
-        print(f"Buscando Top 10 Obras Aclamadas pela Critica no {country}")
-        print("...")
-        print("")
-        modelo = open(r"src\bin\CabecalhoPrincipal.bin", "rb")
-        inf = pickle.load(modelo)
-        modelo.close()
-        lenrank = inf.nd
-        lenrank = lenrank + 1
-        cont = 0
-        title_list = []
-        for i in range(lenrank):
-            if i != 0:
-                title = PopularidadeFiltro(i)
-                id_title = Busca_id_title(title)
-                #confirm = id_title_eh_movie(id_title)
-                resp = Busca_id_country_por_id_title(id_title)
-                if resp == id_country:
-                    title_list.append(title)
-                    cont += 1
-                    if(cont == 10):
-                        return title_list
-        if cont < 10:
-            print(f"Não foram Encontradas 10 Obras em {country}")
-            return title_list
-    else:
-        print("Pais não encontrado no DataBase!")
-        title_list = []
-        return title_list
 
 def Top10Filmes():
     menu = '11'
     while menu != '7':
         print_menuTopFilmes()
         menu = (input("Sua opcao: "))
-        if menu == '4':
+        if menu == '3':
             break
         elif menu == '1':
             title1 = Top10Filmes_rank()
@@ -717,21 +732,14 @@ def Top10Filmes():
                 print("Nenhum filme encontrado!")
             else:
                 for i in range(len(title1)):
-                    print(f"{i+1}) {title1[i]}")              
+                    print(f"{i+1}) {title1[i]}")
         elif menu == '2':
             title2 = Top10Series_rank()
             if len(title2) == 0:
                 print("Nenhum filme encontrado!")
             else:
                 for i in range(len(title2)):
-                    print(f"{i+1}) {title2[i]}")   
-        elif menu == '3':
-            title3 = Top10Country_rank()
-            if len(title3) == 0:
-                print("Nenhum filme encontrado!")
-            else:
-                for i in range(len(title3)):
-                    print(f"{i+1}) {title3[i]}")   
+                    print(f"{i+1}) {title2[i]}")
         else:
             print()
             print("************************************************")
@@ -767,6 +775,7 @@ def FiltrarObras():
             print("************************************************")
             pass
 
+
 def Catalogo(vetor, offset):
     title = vetor[offset]
     id_title = Busca_id_title(title)
@@ -788,9 +797,6 @@ def Catalogo(vetor, offset):
     print(f"PAIS DE ORIGEM: {country.upper()}")
     print(f"RANKING DE POPULARIDADE ENTRE USUARIOS DA NETFLIX: {rankpop}")
     print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-
-
-
 
 
 def switchMainmenu():
