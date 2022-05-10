@@ -9,5 +9,4 @@ from menusaux import *
 #CsvtoBin()
 artepython()
 switchMainmenu()
-
-  
+ 
