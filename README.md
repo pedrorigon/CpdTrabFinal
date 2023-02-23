@@ -68,10 +68,6 @@ de modo, que cada linha apresenta a informação relacionada com o id_title. Por
 cada linha carrega consigo índices de acesso à informação de um determinado título
 presente no streaming Netflix.
 
-```
-Figura 3 : Arquivo Csv principal
-```
-
 Para a ligação desses arquivos foram criadas árvores trie como índice de acesso
 ao arquivo principal. Há, árvores trie normais e invertidas, afim de facilitar o acesso,
 aumentar a velocidade dos filtros de busca e diminuir o tempo de execução das filtragens.
@@ -98,63 +94,114 @@ prefixo “the” em seus títulos. Ainda dentro desta opção, após a listagem
 acordo com a filtragem de prefixo inserida, o usuário pode escolher um dos títulos da
 lista para consultar todas as informações referentes a ele.
 
-```
-Figura 5 : Menu Principal
-```
-```
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220797259-4bbb8335-ff04-4f46-addf-3f22c5aa6bfa.png" width="600px" />
+
+Figura 2 : Menu Principal.
+</div>  
+  
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220798257-ec188430-de43-47c1-b4a8-673bf3f72a43.png" width="600px" />
+
 Figura 6 : Menu de Filtros buscando o título pelo seu imdb_id.
-```
+</div>    
 
-```
-Figura 7 : Menu de Filtros buscando os títulos pelo idioma.
-```
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220798510-cde635f2-5c09-403a-80d4-3cd38d6914d4.png" width="600px" />
+
+Figura 7 : Menu de Filtros buscando o título pelo seu imdb_id.
+</div>    
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220798792-9d1eb539-ca39-4fb7-b644-006f8aae3e18.png" width="600px" />
+
 Figura 8 : Menu de Filtros buscando o título pela popularidade.
+</div>   
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220799026-1f815db7-ee83-4fb1-9fc3-142c0a0602ac.png" width="600px" />
 
 Figura 9 : Menu de Filtros buscando os títulos pelo ano de estreia.
+</div>   
 
-```
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220799184-a93c0c84-ac45-4a0e-b9f1-c39a0ef43f46.png" width="600px" />
+
 Figura 10 : Menu de Filtros buscando os títulos pelo tipo.
-```
+</div>   
+
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220799329-e23b221b-fc71-47a1-9a5b-b7d8c468965d.png" width="600px" />
 
 Figura 11 : Menu de Filtros buscando os títulos pelo país de origem.
+</div>  
+  
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220799492-3d3b5dca-c721-4589-849b-5267ecceb4b7.png" width="600px" />
 
+Figura 12 : Menu Principal buscando por prefixo e em seguida exibindo as informações do título desejado dentre os listados com o respectivo prefixo.
+</div>  
 
-Figura 12 : Menu Principal buscando por prefixo e em seguida exibindo as informações do título
-desejado dentre os listados com o respectivo prefixo.
-
-
+  
 - Ordenação dos dados: ao selecionar a opção 6) do menu, o usuário entra no menu
     de ordenação, que lhe permite ordenar os títulos de acordo com os seguintes critérios:
     Ordem Alfabética Normal, Ordem Alfabética Inversa, Ranking Popularidade em
     ordem normal, Ranking Popularidade em ordem inversa.
 
-```
-Figura 13 : Menu de Ordenação
-```
-```
-Figura 14 : parte da ordenação em ordem alfabética normal
-```
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220799720-3d079cf1-174f-4763-93f9-7027f1bbac31.png" width="600px" />
 
-```
-Figura 15 : parte da ordenação em ordem alfabética inversa.
-```
-Figura 16 : parte da ordenação pelo ranking em ordem normal.
+Figura 13 : Menu de Ordenação.
+</div>  
 
+  
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220800544-5cfc2d0e-399f-4bdf-bdf0-d22c2b70f304.png" width="600px" />
 
-Figura 17 : parte da ordenação pelo ranking em ordem inversa.
+Figura 14 : Parte da ordenação em ordem alfabética normal.
+</div>  
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220800365-508ebebe-6430-4c69-8f85-56b0cf340460.png" width="600px" />
+
+Figura 15 : Parte da ordenação em ordem alfabética inversa.
+</div>  
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220800651-a39dbbfb-09ce-4aca-ad8c-0d05c837fce7.png" width="600px" />
+
+Figura 16 : Parte da ordenação pelo ranking em ordem normal.
+</div>  
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220800778-35661560-a6ad-4b4d-8f52-2d9938a9a15a.png" width="600px" />
+
+Figura 17 : Parte da ordenação pelo ranking em ordem inversa.
+</div>  
+
 
 
 - Top 10: ao selecionar a opção 5) do menu principal, o usuário terá acesso ao menu
     Top 10, onde poderá listar os “Top 10” (primeiros 10 classificados de acordo com o
     ranking), de acordo com as categorias: Top 10 Filmes e Top 10 Series.
 
-```
-Figura 18 : menu Top 10 exibindo Top 10 Filmes.
-```
-```
-Figura 19 : menu Top 10 exibindo Top 10 Series.
-```
+  
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220800890-db74bdc0-6c7b-4298-b294-61988645fa3a.png" width="600px" />
+
+Figura 18 : Menu Top 10 exibindo Top 10 Filmes.
+</div> 
+
+  
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220801030-ace3be4e-99c1-4906-a7db-ce8ab1f11a2e.png" width="600px" />
+
+Figura 19 : Menu Top 10 exibindo Top 10 Series.
+</div> 
+
 
 - Inserção e Remoção de dados: ao escolher a opção 3) do menu principal, o usuário
     poderá inserir uma nova obra no catálogo, assim como, ao escolher a opção 4) poderá
