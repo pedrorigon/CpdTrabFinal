@@ -43,9 +43,11 @@ Desta forma, obtivemos 7 arquivos csv, sendo 1 deles o arquivo central
 demais arquivos, e os outros 6, contendo suas respectivas informações específicas
 referenciadas pelo índice de acesso contido no arquivo csv principal.
 
-```
+<div align="center">
+<img src="https://user-images.githubusercontent.com/61710159/220796072-21509694-a4f2-4a0c-9496-8a006455d691.png" width="600px" />
+
 Figura 1 : Modelo Estrela feito utilizando o Power BI.
-```
+</div>
 
 Além disso, foram tratados alguns problemas de informação contidos nos dados
 inicialmente extraídos, como:
